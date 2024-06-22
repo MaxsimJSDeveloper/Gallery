@@ -1,7 +1,7 @@
 import React from "react";
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
-import { ImageGalleryProps, ImageItem } from "./ImageGallery.types";
+import { ImageGalleryProps } from "./ImageGallery.types";
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({ items, onImageClick }) => (
   <ul className={css["image-gallery"]}>
@@ -13,7 +13,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ items, onImageClick }) => (
           <ImageCard
             imgUrl={urls.small}
             imgDescr={slug}
-            onClick={() => onImageClick(id)}
+            onClick={onImageClick}
           />
         </li>
       )

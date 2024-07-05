@@ -9,6 +9,7 @@ import Error from "../ErrorMessage/ErrorMessage";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
+import ScrollButton from "../ScrollButton/ScrollButton";
 
 const App = () => {
   const [images, setImages] = useState<ImageItem[]>([]);
@@ -73,6 +74,7 @@ const App = () => {
   return (
     <>
       <SearchForm onSearch={handleSearch} />
+      <ScrollButton/>
       {loading && <Loader />}
       {error && <Error />}
       {images.length > 0 && (

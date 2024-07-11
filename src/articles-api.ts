@@ -6,7 +6,7 @@ const API_KEY: string = "sUVy_4Xtw_sm-woEsymdXeZecjTCOBJZTSCcmIQf3BQ";
 export type ImageResult = {
   id: string;
   description: string | null;
-  alt_description: string | null;
+  alt_description: string;
   likes: number | null;
   urls: {
     raw: string;

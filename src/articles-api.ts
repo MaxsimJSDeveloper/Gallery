@@ -7,6 +7,7 @@ export type ImageResult = {
   id: string;
   description: string | null;
   alt_description: string | null;
+  likes: number | null;
   urls: {
     raw: string;
     full: string;
@@ -28,7 +29,7 @@ type Params = {
   page: number;
 };
 
-export const fetchArticlesWithTopic = async (
+export const getImages = async (
   query: string,
   page: number
 ): Promise<ImageResult[]> => {

@@ -1,5 +1,6 @@
 export interface ImageCardProps {
-  imgUrl: string;
-  imgDescr: string;
+  url: string;
+  alt: string;
+  likes: number | null;
   onClick: (url: string) => void;
 }

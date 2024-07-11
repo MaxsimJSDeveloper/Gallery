@@ -1,11 +1,13 @@
-import React from "react";
 import Modal from "react-modal";
+import { FC } from "react";
 
 import { ImageModalProps } from "./ImageModal.types";
 
+import css from "./ImageModal.module.css";
+
 const customStyles = {
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
   },
   content: {
     top: "50%",
@@ -22,22 +24,20 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const ImageModal: React.FC<ImageModalProps> = ({
-  isOpen,
-  onClose,
-  imageUrl,
-}) => {
+const ImageModal: FC<ImageModalProps> = ({ isOpen, onClose, imageUrl }) => {
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onClose}
       style={customStyles}
-      contentLabel="Image Modal"
+      ariaHideApp={false}
+      contentLabel="Modal Image"
+      closeTimeoutMS={300}
+      shouldCloseOnEsc={true}
+      onRequestClose={() => {
+        onClose();
+      }}
     >
-      <button onClick={onClose} className="close-btn">
-        &times;
-      </button>
-      <img src={imageUrl} alt="Large" />
+      <img className={css.modalImage} src={imageUrl} alt="Large" />
     </Modal>
   );
 };

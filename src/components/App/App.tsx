@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Toaster } from "react-hot-toast";
 import { ImageItem } from "../ImageGallery/ImageGallery.types";
-import { ImageResult, fetchArticlesWithTopic } from "../../articles-api";
+import { getImages, ImageResult } from "../../articles-api";
 import SearchForm from "../SearchBar/SearchBar";
 import Loader from "../Loader/Loader";
 import Error from "../ErrorMessage/ErrorMessage";
@@ -24,7 +24,9 @@ const App = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await fetchArticlesWithTopic(query, page);
+        const data = await getImages(query, page);
+        console.log(data);
+
         if (page === 1) {
           setImages(data.map(convertToImageItem));
         } else {
@@ -40,7 +42,7 @@ const App = () => {
       }
     };
 
-    if (query !== "") {
+    if (query.trim() !== "") {
       fetchData();
     }
   }, [query, page]);
@@ -68,13 +70,15 @@ const App = () => {
   const convertToImageItem = (result: ImageResult): ImageItem => ({
     id: result.id,
     urls: result.urls,
-    slug: result.id,
+    alt: result.alt_description,
+    dscr: result.description,
+    likes: result.likes,
   });
 
   return (
     <>
       <SearchForm onSearch={handleSearch} />
-      <ScrollButton/>
+      <ScrollButton />
       {loading && <Loader />}
       {error && <Error />}
       {images.length > 0 && (

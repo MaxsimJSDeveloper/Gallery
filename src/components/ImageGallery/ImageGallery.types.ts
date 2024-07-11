@@ -1,9 +1,11 @@
 export interface ImageItem {
   id: string;
+  alt: string;
+  dscr: string | null;
+  likes: number | null;
   urls: {
     small: string;
   };
-  slug: string;
 }
 
 export interface ImageGalleryProps {

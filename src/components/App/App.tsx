@@ -10,6 +10,7 @@ import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
 import ScrollButton from "../ScrollButton/ScrollButton";
+import Welcome from "../Welcome/Welcome";
 
 const App = () => {
   const [images, setImages] = useState<ImageItem[]>([]);
@@ -81,6 +82,7 @@ const App = () => {
       <ScrollButton />
       {loading && <Loader />}
       {error && <Error />}
+      {images.length === 0 && <Welcome />}
       {images.length > 0 && (
         <ImageGallery items={images} onImageClick={openModal} />
       )}

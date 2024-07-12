@@ -1,0 +1,22 @@
+.wrap {
+  position: absolute;
+  top: 35%;
+  left: 32%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 48px;
+}
+
+.text {
+  margin-top: 60px;
+  color: #2e2f42;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+}

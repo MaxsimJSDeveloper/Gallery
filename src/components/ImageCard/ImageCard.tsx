@@ -4,9 +4,15 @@ import { FcLike } from "react-icons/fc";
 
 import css from "./ImageCard.module.css";
 
-const ImageCard: FC<ImageCardProps> = ({ url, alt, likes, onClick }) => {
+const ImageCard: FC<ImageCardProps> = ({
+  url,
+  bigUrl,
+  alt,
+  likes,
+  onClick,
+}) => {
   const handleClick = () => {
-    onClick(url);
+    onClick(bigUrl);
   };
 
   return (

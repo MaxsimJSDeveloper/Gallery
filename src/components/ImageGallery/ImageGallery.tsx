@@ -8,7 +8,8 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ items, onImageClick }) => (
     {items.map(({ id, urls, alt, likes }) => (
       <li key={id}>
         <ImageCard
-          url={urls.small}
+          url={urls.small_s3}
+          bigUrl={urls.regular}
           alt={alt}
           likes={likes}
           onClick={onImageClick}

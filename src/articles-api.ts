@@ -9,10 +9,11 @@ export type ImageResult = {
   alt_description: string;
   likes: number | null;
   urls: {
-    raw: string;
     full: string;
+    raw: string;
     regular: string;
     small: string;
+    small_s3: string;
     thumb: string;
   };
 };

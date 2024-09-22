@@ -1,8 +1,8 @@
-#Galery
+# Galery
 
 App for searching images
 
-##Technology
+## Technology
 
 - React
 - TypeScript
